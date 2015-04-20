@@ -6,6 +6,7 @@ class File {
 	double size
 
     static belongsTo = [post:Post]
+	static mappedBy = [post: "post_belongs_id"]
 
     static constraints = {
 		fileType blank:false, validator:{obj->if(obj.fileType.split("/").size()>2)}
