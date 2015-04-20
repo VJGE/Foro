@@ -8,7 +8,8 @@ class Post {
 	boolean itsAllowed
 	Date current=new Date()
 	static transients = ['current']
-	
+
+    static hasMany = [files:File]
 	
     static constraints = {
 		dateCreated blank:false

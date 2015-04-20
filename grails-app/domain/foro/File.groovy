@@ -5,6 +5,8 @@ class File {
 	Byte[] content
 	double size
 
+    static belongsTo = [post:Post]
+
     static constraints = {
 		fileType blank:false, validator:{obj->if(obj.fileType.split("/").size()>2)}
 		size max:10485760, blank:false

@@ -8,6 +8,8 @@ class User {
     String userName
     String password
 
+
+
     static constraints = {
         name(blank: false, nullable: false, size: 3..50)
         lastName(blank: false, nullable: false, size: 3..50)
