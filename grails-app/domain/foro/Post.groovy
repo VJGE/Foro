@@ -8,8 +8,9 @@ class Post {
 	boolean itsAllowed
 	Date current=new Date()
 	static transients = ['current']
-
-    static hasMany = [files:File]
+	static belongsto = [regular:Regular,forum:Forum]
+	static mappedBy = [regular: "owner_id",forum:"fatherForum_id"]
+	static hasMany = [files:File]
 	
     static constraints = {
 		dateCreated blank:false
