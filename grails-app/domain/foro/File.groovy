@@ -4,8 +4,7 @@ class File {
 	String fileType
 	Byte[] content
 	double size
-
-    static belongsTo = [post:Post]
+	static belongsTo=[post:Post]
 	static mappedBy = [post: "post_belongs_id"]
 
     static constraints = {

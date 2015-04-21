@@ -3,10 +3,10 @@ package foro
 class Forum {
 	
 	String name
-	Date dateCreated
+	Date dateCreated=new Date()
 	String category
 
-    static belongsTo = [admin:Admin]
+	static hasMany = [posts : Post]
 
     static constraints = {
 		name(blank:false,nullable:false,length:3..20,unique:true)
