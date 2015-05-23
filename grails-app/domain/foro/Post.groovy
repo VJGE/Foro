@@ -6,6 +6,8 @@ class Post {
 	String topic
 	Date lastUpdate
 	boolean itsAllowed
+    int rate
+    ArrayList<String> comment =new ArrayList<String>();
 	Date current=new Date()
 	static transients = ['current']
 	static belongsTo = [regular:Regular,forum:Forum]
@@ -18,6 +20,7 @@ class Post {
 		itsAllowed nullable:false
 		dateCreated min: current
 		lastUpdate min:current
+        rate min:0
 		
     }
 	
