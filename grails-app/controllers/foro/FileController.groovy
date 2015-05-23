@@ -23,10 +23,15 @@ class FileController {
         respond File.list(params), model:[fileInstanceCount: File.count()]
     }
 
-    def download(){}
+    def download(){
+
+        file=File.findById(params.actulFile)
+        def type='${file.fileType}'
+        render "el archivo de tipo $type esta en descarga"
+    }
 
     def share(){
-        render "No se ha implementado esta funcion"
+        render "This function is not implemented"
     }
 
     def show(File fileInstance) {
