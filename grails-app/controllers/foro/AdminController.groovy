@@ -9,6 +9,18 @@ class AdminController {
 
     static allowedMethods = [save: "POST", update: "PUT", delete: "DELETE"]
 
+    def beforeInterceptor = {
+        println "Se va a ejecutar la accion: ${actionUri}"
+    }
+
+    def afterInterceptor = { model ->
+        println "Se ha ejecutado la accion: ${actionUri}"
+    }
+
+    def list(){
+        respond admins = Admin.list(sort:'level', order: 'asc');
+    }
+
     def index(Integer max) {
         params.max = Math.min(max ?: 10, 100)
         respond Admin.list(params), model: [adminInstanceCount: Admin.count()]
