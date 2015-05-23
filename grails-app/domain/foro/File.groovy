@@ -3,13 +3,15 @@ package foro
 class File {
 	String fileType
 	Byte[] content
-	float size
+	double size
 	static belongsTo=[post:Post]
 	static mappedBy = [post: "post_belongs_id"]
 
-    static constraints = {
-        //fileType validator:{obj->if(obj.fileType.split("/").size()>2)}
-		size max:10485760F, blank:false
+	static constraints = {
+		//fileType validator:{obj->if(obj.fileType.split("/").size()>2)}
+		fileType(blank: false, nullable: false, matches: ".+[/]+.+")
+		size maxSize:10240, blank:false
 		content blank:false
-    }
+	}
 }
+

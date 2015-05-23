@@ -1,6 +1,7 @@
 package foro
 
 
+
 import static org.springframework.http.HttpStatus.*
 import grails.transaction.Transactional
 
@@ -19,7 +20,13 @@ class FileController {
 
     def index(Integer max) {
         params.max = Math.min(max ?: 10, 100)
-        respond File.list(params), model: [fileInstanceCount: File.count()]
+        respond File.list(params), model:[fileInstanceCount: File.count()]
+    }
+
+    def download(){}
+
+    def share(){
+        render "No se ha implementado esta funcion"
     }
 
     def show(File fileInstance) {
@@ -38,11 +45,11 @@ class FileController {
         }
 
         if (fileInstance.hasErrors()) {
-            respond fileInstance.errors, view: 'create'
+            respond fileInstance.errors, view:'create'
             return
         }
 
-        fileInstance.save flush: true
+        fileInstance.save flush:true
 
         request.withFormat {
             form multipartForm {
@@ -65,18 +72,18 @@ class FileController {
         }
 
         if (fileInstance.hasErrors()) {
-            respond fileInstance.errors, view: 'edit'
+            respond fileInstance.errors, view:'edit'
             return
         }
 
-        fileInstance.save flush: true
+        fileInstance.save flush:true
 
         request.withFormat {
             form multipartForm {
                 flash.message = message(code: 'default.updated.message', args: [message(code: 'File.label', default: 'File'), fileInstance.id])
                 redirect fileInstance
             }
-            '*' { respond fileInstance, [status: OK] }
+            '*'{ respond fileInstance, [status: OK] }
         }
     }
 
@@ -88,14 +95,14 @@ class FileController {
             return
         }
 
-        fileInstance.delete flush: true
+        fileInstance.delete flush:true
 
         request.withFormat {
             form multipartForm {
                 flash.message = message(code: 'default.deleted.message', args: [message(code: 'File.label', default: 'File'), fileInstance.id])
-                redirect action: "index", method: "GET"
+                redirect action:"index", method:"GET"
             }
-            '*' { render status: NO_CONTENT }
+            '*'{ render status: NO_CONTENT }
         }
     }
 
@@ -105,7 +112,7 @@ class FileController {
                 flash.message = message(code: 'default.not.found.message', args: [message(code: 'file.label', default: 'File'), params.id])
                 redirect action: "index", method: "GET"
             }
-            '*' { render status: NOT_FOUND }
+            '*'{ render status: NOT_FOUND }
         }
     }
 }
