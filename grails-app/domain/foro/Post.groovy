@@ -22,13 +22,13 @@ class Post {
     }
 	
 	def Post(String topc,boolean allowed,ownerid,forumid){
-		current=DateGroovyMethods.format(new Date(),, 'MM/dd/yyyy HH:mm:ss')
+		current=DateGroovyMethods.format(new Date(), 'MM/dd/yyyy HH:mm:ss')
 		topic=topc
 		itsAllowed=allowed
 		regular=ownerid
 		forum=forumid
-		dateCreated=DateGroovyMethods.format(new Date(),, 'MM/dd/yyyy HH:mm:ss')
-		lastUpdate=DateGroovyMethods.format(new Date(),, 'MM/dd/yyyy HH:mm:ss')
+		dateCreated=DateGroovyMethods.format(new Date(), 'MM/dd/yyyy HH:mm:ss')
+		lastUpdate=DateGroovyMethods.format(new Date(), 'MM/dd/yyyy HH:mm:ss')
 		
 	}
 	

@@ -3,12 +3,12 @@ package foro
 class Admin extends User {
 
     int level
-    double rating
+    float rating
 
     static hasMany = [forums:Forum]
 
     static constraints = {
         level(blank: false, min: 1, max: 5)
-        rating(blank: false, min:0, max:100)
+        rating(blank: false, min:0F, max:100F)
     }
 }
