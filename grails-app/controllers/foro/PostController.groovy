@@ -9,14 +9,6 @@ class PostController {
 
     static allowedMethods = [save: "POST", update: "PUT", delete: "DELETE"]
 
-    def beforeInterceptor = {
-        println "Se va a ejecutar la accion: ${actionUri}"
-    }
-
-    def afterInterceptor = { model ->
-        println "Se ha ejecutado la accion: ${actionUri}"
-    }
-
     def index(Integer max) {
         params.max = Math.min(max ?: 10, 100)
         respond Post.list(params), model: [postInstanceCount: Post.count()]
@@ -24,6 +16,31 @@ class PostController {
 
     def show(Post postInstance) {
         respond postInstance
+    }
+
+    def beforeInterceptor = {
+        println "Se va a ejecutar la accion: ${actionUri}"
+    }
+
+    def rate(){
+        def post= Post.findById(params.actualPost)
+        post.rate++
+        save(post);
+
+    }
+
+    def comment(){
+        def post= Post.findById(params.actualPost)
+        post.comment.add(params.commentContent)
+        save(post);
+    }
+
+    def share(){
+        render("unimplemented function")
+    }
+
+    def afterInterceptor = { model ->
+        println "Se ha ejecutado la accion: ${actionUri}"
     }
 
     def create() {
