@@ -17,6 +17,8 @@ class RegularController {
         println "Se ha ejecutado la accion: ${actionUri}"
     }
 
+    def userRegular(){}
+
     def index(Integer max) {
         params.max = Math.min(max ?: 10, 100)
         respond Regular.list(params), model: [regularInstanceCount: Regular.count()]

@@ -17,6 +17,8 @@ class AdminController {
         println "Se ha ejecutado la accion: ${actionUri}"
     }
 
+    def userAdmin(){}
+
     def list(){
         respond admins = Admin.list(sort:'level', order: 'asc');
     }
