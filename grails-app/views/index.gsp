@@ -6,21 +6,34 @@
     #jump{
         float: left;
         max-width: 20%;
-        margin: 5%
+        min-width: 15%;
+        margin: 5%;
+        border-radius: 10%;
+        border-style: solid;
+        border-color: #CDCDBD;
     }
 
     #lista{
-
+        margin:5%;
     }
     #post{
+        border-style: solid;
+        border-color: #CDCDBD;
+        border-radius: 10%;
         float: left;
         max-width: 20%;
-        margin: 5%
+        min-width: 15%;
+        margin: 5%;
+
     }
     #coments{
+        border-style: solid;
+        border-color: #CDCDBD;
+        border-radius: 10%;
         float: right;
         max-width: 20%;
-        margin: 5%
+        min-width: 15%;
+        margin: 5%;
     }
 
     </style>
@@ -29,21 +42,27 @@
 <div id="jump">
     <h1> consultar </h1>
     <ul id="lista">
-        <il><a>Foros</a></il>
-        <il><g:link controller="user" action="show">Usuarios</g:link></il>
-        <il><g:link controller="post" action="show" />Post</g:link></il>
-        <il><g:link controller="file" action="show">Archivos</g:link> </il>
+        <il><g:link controller="user" action="show">Foros</g:link></il> <br>
+        <il><g:link controller="user" action="show">Usuarios</g:link></il> <br>
+        <il><g:link controller="post" action="show">Post</g:link></il> <br>
+        <il><g:link controller="file" action="show">Archivos</g:link> </il> <br>
     </ul>
 </div>
 <div id="post">
+    <h1> Ultimos post</h1>
+    <ul>
     <g:each var="p" in="${foro.Post.list([max:10, sort:"dateCreated"])}">
-        <a>${p.topic}</a>
+        <il>${p.topic}</il>
     </g:each>
+    </ul>
 </div>
 <div id="coments">
+    <h1>Foros con mas comentarios</h1>
+        <ul>
     <g:each var="p" in="${foro.Post.list([max:10, sort:"lastUpdate"])}">
-        <a>${p.topic}</a>
+        <il>${p.topic}</il>
     </g:each>
+        </ul>
 </div>
 </body>
 </html>
