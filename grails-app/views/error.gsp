@@ -1,18 +1,35 @@
 <!DOCTYPE html>
 <html>
-	<head>
-		<title><g:if env="development">Grails Runtime Exception</g:if><g:else>Error</g:else></title>
-		<meta name="layout" content="main">
-		<g:if env="development"><asset:stylesheet src="errors.css"/></g:if>
-	</head>
-	<body>
-		<g:if env="development">
-			<g:renderException exception="${exception}" />
-		</g:if>
-		<g:else>
-			<ul class="errors">
-				<li>An error has occurred</li>
-			</ul>
-		</g:else>
-	</body>
+<head>
+    <meta name="layout" content="main"/>
+    <style type="text/css" media="screen">
+    #todo{
+        padding: 2%;
+        margin-left: 20%;
+        margin-right: 20%;
+        margin-bottom: 5%;
+    }
+    #texto{
+        margin-left: 5%;
+    }
+    #imagen{
+        margin-left: 5%;
+        margin-right: 5%;
+        width: 70%;
+    }
+    .errorFor img{
+        width: 100%;
+    }
+    </style>
+</head>
+<body>
+<div id="todo" class="errorFor">
+    <div id="texto">
+        <h1 id="mens">Lo sentimos la pagina solicitada no existe</h1>
+    </div>
+    <div id="imagen">
+        <asset:image src="sad.jpg" alt="error"/>
+    </div>
+</div>
+</body>
 </html>

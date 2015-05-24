@@ -32,6 +32,7 @@ class PostController {
     def comment(){
         def post= Post.findById(params.actualPost)
         post.comment.add(params.commentContent)
+        post.lastUpdate=DateGroovyMethods.format(new Date(), 'MM/dd/yyyy HH:mm:ss')
         save(post);
     }
 

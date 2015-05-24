@@ -1,0 +1,48 @@
+.div-central{
+    height: 50%;
+    width: 80%;
+    border: solid black 1px;
+    margin-left: 10%;
+    margin-top: 5%;
+}
+.div-bajo{
+    height: 20%;
+    width: 60%;
+    margin-top: 0%;
+    margin-left: 15%;
+    margin-bottom: 5%;
+    padding-bottom: 10%;
+    padding-left: 10%;
+}
+.div-bajo2{
+    height: 20%;
+    width: 60%;
+    margin-top: 5%;
+    margin-left: 15%;
+    margin-bottom: 5%;
+    padding-bottom: 10%;
+    padding-left: 10%;
+}
+.tittle-central{
+    font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
+    color: #333333;
+    padding-left: 40%;
+    padding-right: 20%;
+    padding-bottom: 10%;
+    padding-top: 5%;
+}
+.second-phrase{
+    font-family: "Lucida Grande", Tahoma, Arial, Verdana, sans-serif;
+    color: #333333;
+    padding-left: 33%;
+}
+.text{
+    font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
+    color: #333333;
+    padding-left: 30%;
+}
+.text2{
+    font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
+    color: #333333;
+    padding-left: 15%;
+}
