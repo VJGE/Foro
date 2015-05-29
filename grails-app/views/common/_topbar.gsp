@@ -11,7 +11,8 @@
                 <a href="#">Mis Post</a>
             </li>
             <li>
-                <a href="#">Mi Perfil</a>
+                <g:link controller="User" action="perfil">Mi Perfil
+                </g:link>
             </li>
             <li class="hola">
                 Bienvenido:

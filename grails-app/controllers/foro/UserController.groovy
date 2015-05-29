@@ -13,6 +13,19 @@ class UserController {
 
     def login(){};
 
+    def perfil(){
+        def user = session.user
+        if (user.class == Admin) {
+            redirect(controller: 'admin', action: 'userAdmin')
+        } else {
+            if (user.class == Regular) {
+                redirect(controller: 'regular',action: 'userRegular')
+            } else {
+                render(view: '/index')
+            }
+        }
+    };
+
     def handleLogin(){
         def user = User.findByUserName(params.userName)
         def pass = params.password
@@ -24,12 +37,12 @@ class UserController {
             session.user = user
             if(user.password == pass) {
                 if (user.class == Admin) {
-                    redirect(controller: 'admin')
+                    render(view: '/index')
                 } else {
                     if (user.class == Regular) {
-                        redirect(controller: 'regular')
+                        render(view: '/index')
                     } else {
-                        redirect(controller: 'user')
+                        render(view: '/index')
                     }
                 }
             }
