@@ -21,7 +21,7 @@
         <g:textField name="userName" value="${user?.userName}" type="text" id="inputUserName" class="clase_login" placeholder="username"  />
         </div>
         <div align="center" style="margin-top: 20px">
-        <g:textField name="password" value="${user?.password}" type="text" id="password" class="clase_login" placeholder="password"  />
+        <g:passwordField name="password" value="${user?.password}" type="text" id="password" class="clase_login" placeholder="password"/>
         </div>
         <br />
         <div align="center">

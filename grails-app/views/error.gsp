@@ -26,6 +26,11 @@
 <div id="todo" class="errorFor">
     <div id="texto">
         <h1 id="mens">Lo sentimos la pagina solicitada no existe</h1>
+        <g:if test="${flash.message}">
+            <div class="message">
+                ${flash.message }
+            </div>
+        </g:if>
     </div>
     <div id="imagen">
         <asset:image src="sad.jpg" alt="error"/>
