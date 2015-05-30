@@ -20,6 +20,11 @@ class ForumController {
     def buscar={
 
     }
+    def buscarService
+
+    def buscar(){
+        buscarService.buscarForos(params)
+    }
 
     def index(Integer max) {
         params.max = Math.min(max ?: 10, 100)
