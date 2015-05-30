@@ -1,7 +1,7 @@
 <div>
-    <a haref="/Foro">
+    <g:link controller="user" action="indexP">
     <asset:image src="icono.png" alt="Grails" />
-    </a>
+    </g:link>
     <div id="botones">
     <ul>
         <g:if test="${session.user}">
