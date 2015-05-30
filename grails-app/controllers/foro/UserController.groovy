@@ -12,6 +12,12 @@ class UserController {
     static scaffold = User
 
     def login(){};
+    def LoginService
+    def BuscarService
+
+    def buscar(){
+        BuscarService.buscarUsuarios(params)
+    }
 
     def perfil(){
         def user = session.user
@@ -27,34 +33,29 @@ class UserController {
     };
 
     def handleLogin(){
-        def user = User.findByUserName(params.userName)
-        def pass = params.password
-        if(!user){
-            flash.message='User not found for userName: ${params.userName}'
-            redirect(action:'login')
-            return
-        }else{
-            session.user = user
-            if(user.password == pass) {
-                if (user.class == Admin) {
-                    render(view: '/index')
-                } else {
-                    if (user.class == Regular) {
-                        render(view: '/index')
-                    } else {
-                        render(view: '/index')
-                    }
-                }
+        if (session.authStatus == 'logged'){
+            render(view: '/error')
+        }
+        else {
+            if(!params.userName || !params.password){
+                redirect(action: 'login')
             }
-            else{
-                flash.message='Contraseña incorrecta'
-                redirect(action:'login')
-                return
+            else {
+                def user = LoginService.login(session, params)
+                if (!user) {
+                    flash.message = 'No se encontró el usuario'
+                    render(view: '/error')
+                    return flash.message
+                } else {
+                    session.user = user
+                    render(view: '/index')
+                }
             }
         }
     }
 
     def logout(){
+        LoginService.logout(session)
         if(session.user){
             session.user=null
             redirect(action:'login')
@@ -93,6 +94,9 @@ class UserController {
             respond userInstance.errors, view: 'create'
             return
         }
+        //def contra = params.password
+        //params.password=params.password.encodeAsMD5()
+        //params.password = contra
 
         userInstance.save flush: true
 
