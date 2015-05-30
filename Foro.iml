@@ -111,7 +111,6 @@
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
     <orderEntry type="library" name="org.grails.ide.eclipse.core.CLASSPATH_CONTAINER" level="application" />
-    <orderEntry type="library" name="grails-2.5.0" level="application" />
     <orderEntry type="module-library" exported="">
       <library name="Grails User Library (Foro)">
         <CLASSES>
@@ -158,5 +157,6 @@
       </library>
     </orderEntry>
     <orderEntry type="module" module-name="Foro-grailsPlugins" />
+    <orderEntry type="library" name="grails-2.5.0" level="application" />
   </component>
 </module>

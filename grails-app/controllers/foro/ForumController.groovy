@@ -17,6 +17,10 @@ class ForumController {
         println "Se ha ejecutado la accion: ${actionUri}"
     }
 
+    def buscar={
+
+    }
+
     def index(Integer max) {
         params.max = Math.min(max ?: 10, 100)
         respond Forum.list(params), model: [forumInstanceCount: Forum.count()]
