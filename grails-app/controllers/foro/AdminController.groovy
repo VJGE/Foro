@@ -48,7 +48,13 @@ class AdminController {
             return
         }
 
-        adminInstance.save flush: true
+        if(params.password ==~ "^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])([a-zA-Z0-9]+)"){
+            adminInstance.password= adminInstance.password.encodeAsMD5()
+            println "${adminInstance.password}"
+            adminInstance.save flush: true
+        }else{
+            flash.message = message('Contraseña inválida')
+        }
 
         request.withFormat {
             form multipartForm {

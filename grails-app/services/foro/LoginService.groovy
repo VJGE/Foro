@@ -14,7 +14,7 @@ class LoginService {
         if (!user){
             return
         }else{
-            if(user.password==params.password) {
+            if(user.password==params.password.encodeAsMD5()) {
                 session.authStatus = 'logged'
                 return user
             }

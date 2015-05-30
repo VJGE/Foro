@@ -46,7 +46,13 @@ class RegularController {
             return
         }
 
-        regularInstance.save flush: true
+        if(params.password ==~ "^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])([a-zA-Z0-9]+)"){
+            regularInstance.password= regularInstance.password.encodeAsMD5()
+            println "${regularInstance.password}"
+            regularInstance.save flush: true
+        }else{
+            flash.message = message('Contraseña inválida')
+        }
 
         request.withFormat {
             form multipartForm {

@@ -94,11 +94,14 @@ class UserController {
             respond userInstance.errors, view: 'create'
             return
         }
-        //def contra = params.password
-        //params.password=params.password.encodeAsMD5()
-        //params.password = contra
 
-        userInstance.save flush: true
+        if(params.password ==~ "^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])([a-zA-Z0-9]+)"){
+            userInstance.password= userInstance.password.encodeAsMD5()
+            println "${userInstance.password}"
+            userInstance.save flush: true
+        }else{
+            flash.message = message('Contraseña inválida')
+        }
 
         request.withFormat {
             form multipartForm {
