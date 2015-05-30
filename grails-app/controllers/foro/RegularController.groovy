@@ -32,6 +32,8 @@ class RegularController {
         respond new Regular(params)
     }
 
+    def regularMiPost(){}
+
     @Transactional
     def save(Regular regularInstance) {
         if (regularInstance == null) {
